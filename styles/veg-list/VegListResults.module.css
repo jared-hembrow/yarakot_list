@@ -1,0 +1,30 @@
+.veg-list-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vw;
+  padding: 1vw;
+  width: 90vw;
+  background-color: rgb(235, 235, 235);
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px black;
+  color: black;
+}
+
+.results-table {
+  margin-top: 5vw;
+  padding: 1vw;
+  border-collapse: collapse;
+
+  border: 1px solid black;
+}
+.results-cell-th {
+  background-color: rgb(171, 172, 238);
+}
+.results-row {
+  /* border-bottom: 1px solid black; */
+}
+.results-cell {
+  border: 1px solid black;
+  padding: 1vw;
+}

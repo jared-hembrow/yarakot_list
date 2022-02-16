@@ -1,0 +1,26 @@
+.veg-item {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1vh;
+  background-color: rgb(158, 184, 223);
+  padding: 0.5vw;
+  border-radius: 10px;
+}
+.veg-item-title {
+  margin-left: 5vw;
+}
+.veg-item-interface {
+  display: flex;
+  margin-left: 10vw;
+}
+.veg-item-amount {
+  width: 30%;
+}
+.item-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 3vw;
+  border-radius: 5px;
+  background-color: white;
+}
