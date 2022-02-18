@@ -1,10 +1,37 @@
+import { useContext } from "react";
 import Head from "next/head";
 // components
+import AuthContext from "@/context/AuthContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import Login from "@/components/layout/Login";
 // style
 import styles from "@/styles/layout/Layout.module.css";
 function Layout({ title, description, keywords, children }) {
+  const { user, login } = useContext(AuthContext);
+  if (!user) {
+    return (
+      <div className={styles["layout-container"]}>
+        {/* Document Head */}
+
+        <Head>
+          <title>{title}</title>
+          <meta name="description" content={description} />
+          <meta name="keywords" content={keywords} />
+          {/* Samantic UI CSS */}
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+          />
+        </Head>
+        <Header />
+        <div className={styles["app-container"]}>
+          <Login login={login} />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
   return (
     <div className={styles["layout-container"]}>
       {/* Document Head */}
