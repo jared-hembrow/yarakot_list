@@ -23,11 +23,7 @@ export default function OrdersPage({ orders }) {
 
 export async function getServerSideProps() {
   const orders = await prisma.Orders.findMany();
-  const sortedOrders = orders.map((order) => {
-    const o = order;
-    o.list = JSON.parse(o.list);
-    return o;
-  });
+
   return {
     props: {
       orders: orders,
