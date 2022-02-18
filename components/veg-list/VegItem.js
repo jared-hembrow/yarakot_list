@@ -6,15 +6,15 @@ export default function VegItem({ data, onChange }) {
     e.preventDefault();
   };
   return (
-    <div className={styles["veg-item"]}>
-      <div className={styles["veg-item-title"]}>{data.title}</div>
+    <div key={data.englishName} className={styles["veg-item"]}>
+      <div className={styles["veg-item-title"]}>{data.englishName}</div>
       <form
         onSubmit={(e) => onSubmit(e)}
         className={styles["veg-item-interface"]}
       >
         <input
           className={styles["veg-item-amount"]}
-          onChange={(e) => onChange("amount", data.title, e.target.value)}
+          onChange={(e) => onChange("amount", data.englishName, e.target.value)}
           type="number"
           min={0}
           defaultValue={0}
@@ -22,7 +22,7 @@ export default function VegItem({ data, onChange }) {
         />
         <select
           onChange={(e) =>
-            onChange("containerType", data.title, e.target.value)
+            onChange("containerType", data.englishName, e.target.value)
           }
         >
           <option value="box">Box</option>

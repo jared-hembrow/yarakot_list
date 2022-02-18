@@ -21,10 +21,12 @@
 .results-cell-th {
   background-color: rgb(171, 172, 238);
 }
-.results-row {
-  /* border-bottom: 1px solid black; */
-}
+
 .results-cell {
   border: 1px solid black;
   padding: 1vw;
+}
+
+.results-confirm {
+  margin-top: 2vh;
 }

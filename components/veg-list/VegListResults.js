@@ -1,7 +1,7 @@
 import React from "react";
+
 import styles from "@/styles/veg-list/VegListResults.module.css";
-export default function VegListResults({ data }) {
-  console.log(data);
+export default function VegListResults({ data, onConfirm }) {
   return (
     <div className={styles["veg-list-result-container"]}>
       <table className={styles["results-table"]}>
@@ -27,8 +27,8 @@ export default function VegListResults({ data }) {
         <tbody>
           {data.map((item) => {
             return (
-              <tr key={item.title} className={styles["results-row"]}>
-                <td className={styles["results-cell"]}>{item.title}</td>
+              <tr key={item.englishName} className={styles["results-row"]}>
+                <td className={styles["results-cell"]}>{item.englishName}</td>
                 <td className={styles["results-cell"]}>{item.amount}</td>
                 <td className={styles["results-cell"]}>{item.containerType}</td>
               </tr>
@@ -36,6 +36,11 @@ export default function VegListResults({ data }) {
           })}
         </tbody>
       </table>
+      <div className={styles["results-confirm"]}>
+        <button className="ui green button" onClick={() => onConfirm(data)}>
+          Confirm
+        </button>
+      </div>
     </div>
   );
 }
