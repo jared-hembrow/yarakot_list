@@ -19,6 +19,7 @@ export default function OrderList({ data }) {
       {data.map((order) => {
         return (
           <div
+            key={order.id}
             onClick={() => handleNav(order.id)}
             className={styles["orders-list-container"]}
           >
@@ -28,11 +29,6 @@ export default function OrderList({ data }) {
             <div className={styles["order-list-icon"]}>
               <i className="angle double right icon" />
             </div>
-            {/* <div>
-              {order.list.map((item) => {
-                return <div>{item.englishName}</div>;
-              })}
-            </div> */}
           </div>
         );
       })}

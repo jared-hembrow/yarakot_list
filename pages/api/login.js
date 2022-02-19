@@ -1,11 +1,9 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "@/config/client";
 
 export default async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed!!" });
   }
-  console.log(typeof req.body);
   const password = JSON.parse(req.body);
   const checkPW = await prisma.User.findFirst({
     where: {

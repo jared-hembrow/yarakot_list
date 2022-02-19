@@ -1,13 +1,14 @@
 import { useState } from "react";
-
+import { useRouter } from "next/router";
 // components
 import Layout from "@/components/layout/Layout";
 import VegList from "@/components/veg-list/VegList";
 import VegListResults from "@/components/veg-list/VegListResults";
 // prisma
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "@/config/client";
 export default function index({ vegetablesList }) {
+  // navigation
+  const router = useRouter();
   // state management
   const [listResults, setListResults] = useState();
   const onSubmit = (list) => {
@@ -17,7 +18,11 @@ export default function index({ vegetablesList }) {
     const res = await fetch("/api/insert-order", {
       method: "POST",
       body: JSON.stringify({ list: JSON.stringify(listValues) }),
-    }).then((result) => console.log(result));
+    }).then((result) => {
+      if (result.ok) {
+        router.push("/");
+      }
+    });
   };
   if (listResults) {
     return (

@@ -2,8 +2,7 @@ import Back from "@/components/Back";
 import Layout from "@/components/layout/Layout";
 import ViewOrder from "@/components/orders/ViewOrder";
 // prisma
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "@/config/client";
 export default function OrderDisplayPage({ order }) {
   console.log(order);
   const renderDate = (timestamp) => {

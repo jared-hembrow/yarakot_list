@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "@/config/client";
 
 export default async (req, res) => {
   if (req.method !== "GET") {

@@ -1,9 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import React from "react";
 // prisma
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/config/client";
+
 import OrderList from "@/components/orders/OrderList";
-const prisma = new PrismaClient();
 
 export default function OrdersPage({ orders }) {
   console.log(orders);
