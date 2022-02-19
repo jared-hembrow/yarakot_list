@@ -2,7 +2,7 @@ import React from "react";
 // style
 import resultsStyles from "@/styles/veg-list/VegListResults.module.css";
 
-export default function ({ data }) {
+export default function ViewOrder({ data }) {
   return (
     <div>
       <table className={resultsStyles["results-table"]}>

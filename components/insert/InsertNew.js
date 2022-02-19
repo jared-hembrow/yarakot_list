@@ -26,8 +26,8 @@ export default function InsertNew() {
   if (complete) {
     return (
       <div className="ui positive message">
-        <i class="close icon" onClick={() => setComplete(false)} />
-        <div class="header">Success</div>
+        <i className="close icon" onClick={() => setComplete(false)} />
+        <div className="header">Success</div>
         <p>You inserted a new item.</p>
         <div className="ui primary button" onClick={() => setComplete(false)}>
           Insert more
