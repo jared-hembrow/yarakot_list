@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 // style
 import styles from "@/styles/veg-list/VegItem.module.css";
 export default function VegItem({ data, onChange }) {
@@ -7,6 +8,9 @@ export default function VegItem({ data, onChange }) {
   };
   return (
     <div key={data.englishName} className={styles["veg-item"]}>
+      <div>
+        <Image src={data.url} height={200} width={200} />
+      </div>
       <div className={styles["veg-item-title"]}>{data.englishName}</div>
       <form
         onSubmit={(e) => onSubmit(e)}

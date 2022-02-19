@@ -14,8 +14,10 @@ model Vegetables {
   id String @id @default(cuid())
   englishName String
   hebrewName String
+  url String
   amount Int @default(0)
   containerType String @default("box")
+  order Int
 }
 model Orders {
   id String @id @default(cuid())
