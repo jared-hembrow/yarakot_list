@@ -6,7 +6,7 @@ import VegList from "@/components/veg-list/VegList";
 import VegListResults from "@/components/veg-list/VegListResults";
 // prisma
 import prisma from "@/config/client";
-export default function index({ vegetablesList }) {
+export default function VegListPage({ vegetablesList }) {
   // navigation
   const router = useRouter();
   // state management
