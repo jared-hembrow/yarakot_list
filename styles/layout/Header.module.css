@@ -15,3 +15,10 @@
 .header-item-link:hover {
   color: rgb(196, 196, 196);
 }
+
+.header-flag {
+  height: 2vh;
+}
+.header-flag:hover {
+  transform: scale(1.1);
+}

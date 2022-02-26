@@ -1,17 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import React from "react";
-// prisma
-import prisma from "@/config/client";
-
 import OrderList from "@/components/orders/OrderList";
-
+// env
+import { BACKEND_URL } from "@/config/index";
 export default function OrdersPage({ orders }) {
-  console.log(orders);
-  // const sortedOrders = orders.map((order) => {
-  //   order.list = JSON.parse(order.list);
-  //   return order;
-  // });
-  // console.log(sortedOrders);
   return (
     <Layout>
       <div className="page-container">
@@ -22,11 +14,14 @@ export default function OrdersPage({ orders }) {
 }
 
 export async function getServerSideProps() {
-  const orders = await prisma.Orders.findMany();
-
+  // const orders = await prisma.Orders.findMany();
+  const orders = await fetch(`${BACKEND_URL}/api/orders`, {
+    method: "GET",
+  });
+  const res = await orders.json();
   return {
     props: {
-      orders: orders,
+      orders: res.orders,
     },
   };
 }

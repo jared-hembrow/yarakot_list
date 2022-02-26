@@ -1,25 +1,26 @@
 import { createContext, useState } from "react";
 import { useRouter } from "next/router";
-import { NEXT_URL } from "@/config/index";
+import { NEXT_URL, BACKEND_URL } from "@/config/index";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
-
   const router = useRouter();
 
   // Login user
   const login = async (password) => {
-    console.log("passing in this", password);
-    const res = await fetch(`${NEXT_URL}/api/login`, {
+    const res = await fetch(`${BACKEND_URL}/api/login`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
       method: "POST",
-      body: JSON.stringify(password),
+      body: JSON.stringify({ password: password }),
     });
 
     const data = await res.json();
-    console.log("res from auth: ", data);
     if (res.ok) {
       setUser(true);
     } else {

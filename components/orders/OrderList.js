@@ -1,14 +1,24 @@
 import React from "react";
 import { useRouter } from "next/router";
-
+import { useContext } from "react";
+import LanguageContext from "@/context/LanguageContext";
 // styles
 import styles from "@/styles/orders/Orders.module.css";
 export default function OrderList({ data }) {
+  const { language } = useContext(LanguageContext);
+
   // navigation
   const router = useRouter();
   const renderDate = (timestamp) => {
+    var options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     const date = new Date(timestamp);
-    return date.toString().slice(0, 15);
+    return date.toLocaleString(language === "eng" ? "en-AU" : "he-IL", options);
+    //.slice(0, 15);
   };
   const handleNav = (id) => {
     router.push(`/orders/${id}`);

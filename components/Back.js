@@ -8,7 +8,6 @@ export default function Back() {
       onClick={() => router.back()}
     >
       <i className="arrow circle left icon" />
-      Back
     </div>
   );
 }

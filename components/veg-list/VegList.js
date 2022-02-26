@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { useContext } from "react";
+import LanguageContext from "@/context/LanguageContext";
 // components
 import VegItem from "@/components/veg-list/VegItem";
 // style
@@ -9,7 +10,7 @@ export default function VegList({ onSubmit, vegetablesList }) {
   // state management
   const [update, setUpdate] = useState(false);
   const [list, setList] = useState(vegetablesList);
-
+  const { language } = useContext(LanguageContext);
   const onChange = (type, title, value) => {
     const idx = list.findIndex((item) => item.englishName === title);
     let changedList = list;
@@ -38,7 +39,7 @@ export default function VegList({ onSubmit, vegetablesList }) {
       </div>
       <div className={styles["veg-list-submit"]}>
         <button onClick={() => onSubmit(list)} className="ui green button">
-          Submit
+          {language === "eng" ? "Submit" : "שלח"}
         </button>
       </div>
     </div>

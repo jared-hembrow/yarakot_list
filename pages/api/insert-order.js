@@ -6,7 +6,6 @@ export default async (req, res) => {
   }
   const orderData = JSON.parse(req.body);
   const date = new Date().getTime();
-  console.log(date);
   const insertData = await prisma.Orders.create({
     data: { list: orderData.list, timestamp: date },
   });

@@ -7,7 +7,6 @@ export default function InsertNew() {
   const [complete, setComplete] = useState(false);
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target[0].value);
     if (!e.target[0].value || !e.target[1].value) {
       return setError("please fill names in both fields");
     }

@@ -1,18 +1,27 @@
 import Back from "@/components/Back";
 import Layout from "@/components/layout/Layout";
 import ViewOrder from "@/components/orders/ViewOrder";
-// prisma
-import prisma from "@/config/client";
+import { useContext } from "react";
+import LanguageContext from "@/context/LanguageContext";
+// env
+import { BACKEND_URL } from "@/config/index";
 export default function OrderDisplayPage({ order }) {
-  console.log(order);
+  const { language } = useContext(LanguageContext);
+
   const renderDate = (timestamp) => {
+    var options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     const date = new Date(timestamp);
-    return date.toString().slice(0, 15);
+    return date.toLocaleString(language === "eng" ? "en-AU" : "he-IL", options);
   };
   return (
     <Layout>
       <div className="page-container">
-        <div>{new Date(order.timestamp).toString().slice(0, 21)}</div>
+        <div>{renderDate(order.timestamp)}</div>
         <ViewOrder data={order.list} />
         <div>
           <Back />
@@ -23,16 +32,13 @@ export default function OrderDisplayPage({ order }) {
 }
 
 export async function getServerSideProps({ params: { id } }) {
-  console.log(id);
-  const order = await prisma.Orders.findUnique({
-    where: {
-      id: id,
-    },
+  const orders = await fetch(`${BACKEND_URL}/api/orders/${id}`, {
+    method: "GET",
   });
-  order.list = JSON.parse(order.list);
+  const res = await orders.json();
   return {
     props: {
-      order: order,
+      order: res.order,
     },
   };
 }

@@ -1,6 +1,8 @@
-import React from "react";
+import { useContext } from "react";
+import LanguageContext from "@/context/LanguageContext";
 
 export default function Login({ login }) {
+  const { language } = useContext(LanguageContext);
   const onSubmit = (e) => {
     e.preventDefault();
     login(e.target[0].value);

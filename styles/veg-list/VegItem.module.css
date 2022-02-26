@@ -7,6 +7,8 @@
   border-radius: 10px;
 }
 .veg-item-title {
+  font-weight: bold;
+  font-size: 1.5rem;
   margin-left: 5vw;
 }
 .veg-item-interface {
