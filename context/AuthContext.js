@@ -12,10 +12,6 @@ export const AuthProvider = ({ children }) => {
   // Login user
   const login = async (password) => {
     const res = await fetch(`${BACKEND_URL}/api/login`, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
       method: "POST",
       body: JSON.stringify({ password: password }),
     });
