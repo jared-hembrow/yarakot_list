@@ -1,6 +1,6 @@
-module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ["i.imgur.com"],
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: true,
 };
+
+module.exports = nextConfig;
